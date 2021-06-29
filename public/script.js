@@ -15,6 +15,7 @@ const randomStrip = () => {
 };
 
 window.onload = () => {
+  // Fetches id of a last comic strip and storing it to session storage for the further use
   if (!window.sessionStorage.getItem("lastId")) {
     fetch(window.location.origin + "/comic-data/last", {
       method: "GET",
@@ -25,16 +26,20 @@ window.onload = () => {
       });
   }
 
+  // gets comic strip id from url
   comicId = window.location.pathname.split("/")[1];
 
+  // if last then just go to home page
   if (comicId >= parseInt(window.sessionStorage.getItem("lastId"))) {
     window.location.pathname = "/";
   }
 
+  
   let url =
     comicId === ""
       ? window.location.origin + "/comic-data/last"
       : window.location.origin + "/comic-data/" + comicId;
+  // Fetches comic data from server and puts it on the page 
   fetch(url, {
     method: "GET",
   })
@@ -45,15 +50,21 @@ window.onload = () => {
       let comicImg = document.getElementById("comic-strip");
       comicImg.src = comicData.img;
       comicImg.alt = comicData.alt;
+
       let comicTitle = document.getElementById("strip-title");
       comicTitle.innerHTML = comicData.title;
+
       let comicDate = document.getElementById("strip-date");
       comicDate.innerHTML =
         comicData.day + "/" + comicData.month + "/" + comicData.year;
+
       let comicNumber = document.getElementById("comic-number");
       comicNumber.innerHTML = comicId;
+
       let transcript = document.getElementById("transcript");
       let transcriptContent = comicData.transcript.split("\n");
+
+      // transcript generation
       transcript.innerHTML = transcriptContent
         .map((line) => {
           if (line.startsWith("{{")) return `<p><b>${line.slice(2, -2)}</b></p>`;
@@ -65,6 +76,7 @@ window.onload = () => {
         .filter((line) => line !== "<p></p>")
         .join("");
 
+      // hides transcript header if it is empty
       if (transcript.innerHTML !== "") {
         let transcriptH2 = document.getElementById("transcript-h2");
         transcriptH2.className = "";
