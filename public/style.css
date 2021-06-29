@@ -8,16 +8,25 @@ body {
   font-family: "Roboto";
 }
 
-h2 {
-  margin-bottom: 0;
-}
-
 body > header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 65px;
   padding: 0 50px;
+}
+
+.hidden {
+  display:none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  color:rgb(124, 209, 163);
 }
 
 #random-strip-button {
@@ -113,6 +122,10 @@ main {
 
 #comic-strip[src=""] {
   opacity: 0;
+}
+
+#transcript-h2 {
+  margin-bottom: 0;
 }
 
 #transcript {
