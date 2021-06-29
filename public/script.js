@@ -5,14 +5,8 @@ const prevPage = () => {
   window.location.pathname = "/" + (parseInt(comicId) - 1);
 };
 const nextPage = () => {
-  fetch(window.location.origin + "/comic-data/last", {
-    method: "GET",
-  })
-    .then((res) => res.json())
-    .then((data) => {
-      if (comicId !== data.num)
-        window.location.pathname = "/" + (parseInt(comicId) + 1);
-    });
+  if (comicId !== window.sessionStorage.getItem("lastId"))
+    window.location.pathname = "/" + (parseInt(comicId) + 1);
 };
 
 const randomStrip = () => {
