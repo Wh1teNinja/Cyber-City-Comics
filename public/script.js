@@ -11,7 +11,7 @@ const nextPage = () => {
 
 const randomStrip = () => {
   window.location.pathname =
-    "/" + Math.floor(Math.random() * window.sessionStorage.getItem("lastId"));
+    "/" + Math.floor(Math.random() * window.sessionStorage.getItem("lastId") + 1);
 };
 
 window.onload = () => {
