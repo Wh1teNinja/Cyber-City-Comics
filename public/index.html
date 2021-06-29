@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/fonts/stylesheet.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+  <title>Cyber City Comics</title>
+</head>
+<body>
+  <header>
+    <h1>Cyber City Comics</h1>
+    <button id="random-strip-button" onclick="randomStrip()">Random</button>
+  </header>
+  <main>
+    <div class="comic">
+      <div class="comic-strip-area">
+        <header> 
+          <h3 id="strip-title">Loading...</h1>
+          <h3 id="strip-date">Loading...</h1>
+        </header>
+        <div class="comic-strip-wrapper">
+          <img onclick="nextPage()" id="comic-strip" src="" alt="comic stript"/>
+        </div>
+        <nav>
+          <button onclick="prevPage()" class="prev">prev</button>
+          <span id="comic-number">loading...</span>
+          <button onclick="nextPage()" class="next">next</button>
+        </nav>
+      </div>
+    </div>
+    <h2>Transcript</h2>
+    <p id="transcript">
+    </p>
+  </main>
+</body>
+</html>

@@ -1,0 +1,158 @@
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+* {
+  font-family: "Roboto";
+}
+
+h2 {
+  margin-bottom: 0;
+}
+
+body > header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 65px;
+  padding: 0 50px;
+}
+
+#random-strip-button {
+  cursor: pointer;
+  width: 100px;
+  height: 40px;
+  border: none;
+  border-radius: 3px;
+  font-size: 1.2em;
+  background-color: rgb(124, 209, 163);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.comic {
+  width: 100%;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.prev,.next {
+  height: 100%;
+  width: 50px;
+  border: none;
+  cursor: pointer;
+  background-color: #f7f7f7;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgb(124, 209, 163);
+}
+
+.comic-strip-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  box-sizing: border-box;
+  width: 520px;
+  height: 100%;
+  background-color: #EEE;
+  border-radius: 10px;
+}
+
+.comic-strip-area > header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 5%;
+  background-color: rgb(124, 209, 163);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.comic-strip-area > header > *{
+  padding: 0 10px;
+}
+
+.comic-strip-wrapper {
+  height: 90%;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.comic-strip-area > nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5%;
+  width: 100%;
+}
+
+#comic-number {
+  padding: 0 10px;
+}
+
+#comic-strip {
+  margin: auto;
+  max-width: 500px;
+  cursor: pointer;
+}
+
+#comic-strip[src=""] {
+  opacity: 0;
+}
+
+#transcript {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 100px;
+}
+
+#transcript > p {
+  margin: 5px;
+}
+
+@media (max-width: 600px) {
+  body > header > h1 {
+    font-size: 1.2em;
+  }
+
+  .comic-strip-area {
+    width: 100%;
+  }
+
+  #comic-strip {
+    max-width: 500px;
+  }
+
+  #transcript {
+    padding: 0 50px;
+  }
+}
+
+@media (max-width: 500px) {
+  #comic-strip {
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 400px) {
+  #comic-strip {
+    max-width: 350px;
+  }
+}
